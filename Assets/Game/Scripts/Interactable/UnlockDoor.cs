@@ -22,7 +22,7 @@ public class UnlockDoor : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                InventoryHandler inventory = InventoryHandler.Instance;
+                Inventory inventory = Inventory.Instance;
                 InventoryItem keyItem = inventory.items.Find(item => item.itemName == requiredKeyItemName);
                 if (keyItem != null)
                 {
