@@ -9,7 +9,7 @@ using static EventBus;
 
 public class TheBoardController : MonoBehaviour
 {
-    InventoryHandler _inventory;
+    Inventory _inventory;
 
     [SerializeField] Transform _buttonArea; //Referenc to the Panel where buttons will be
 
@@ -26,7 +26,7 @@ public class TheBoardController : MonoBehaviour
 
     private void OnEnable()
     { 
-         _inventory = InventoryHandler.Instance;
+         _inventory = Inventory.Instance;
      
         PopulateKeyItems();
 
@@ -45,11 +45,11 @@ public class TheBoardController : MonoBehaviour
     void PopulateKeyItems()
     {
         //Delete all Item Buttons
-        //foreach (var item in _inventory.items)
-        //{
-        //    if(item is KeyItem) 
-        //        CreateItemButton(item);
-        //}
+        foreach (var item in _inventory.items)
+        {
+            if(item is KeyItem) 
+                CreateItemButton(item);
+        }
     }
 
     private void CreateItemButton(InventoryItem item)
