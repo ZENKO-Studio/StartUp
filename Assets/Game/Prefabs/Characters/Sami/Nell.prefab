@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6452442835996562688}
   - component: {fileID: 8933589696566005241}
+  - component: {fileID: 7768242127547971533}
   m_Layer: 0
   m_Name: NellCam
   m_TagString: Untagged
@@ -51,7 +52,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 7078124437506281950}
   m_Follow: {fileID: 7078124437506281950}
   m_Lens:
     FieldOfView: 50
@@ -79,6 +80,36 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1085154290839350734}
+--- !u!114 &7768242127547971533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218057255505876958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: Player
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1 &3752565325783017247
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,18 +167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: {x: 0.1, y: 0.5, z: 0.3}
+  Damping: {x: 0.1, y: 1.5, z: 0.3}
   ShoulderOffset: {x: 0.5, y: 0, z: 0}
   VerticalArmLength: 0.4
   CameraSide: 1
   CameraDistance: 3
   CameraCollisionFilter:
     serializedVersion: 2
-    m_Bits: 1
-  IgnoreTag: Player
-  CameraRadius: 0.2
-  DampingIntoCollision: 0
-  DampingFromCollision: 2
+    m_Bits: 0
+  IgnoreTag: 
+  CameraRadius: 0.001
+  DampingIntoCollision: 0.1
+  DampingFromCollision: 0.1
 --- !u!1 &4496020360722962213
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +539,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 85feb1eebba657b46973f47da501f6ac, type: 2}
+      objectReference: {fileID: 9100000, guid: b0a5235e11a987e439d5e32532dcd7d5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -589,7 +620,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  stamina: 100
+  staminaDepletionRate: 50
+  staminaGenRate: 1
   OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStaminaChanged:
     m_PersistentCalls:
       m_Calls: []
   OnCharacterDead:

@@ -60,3 +60,13 @@ MonoBehaviour:
   captureModeCanvas: {fileID: 0}
   mainCamera: {fileID: 0}
   inventory: {fileID: 0}
+  seqToTrigger: {fileID: 0}
+  inputActions:
+    m_Name: Input Actions
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 141b455a-8481-46dd-8158-e5c52f70fe01
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0

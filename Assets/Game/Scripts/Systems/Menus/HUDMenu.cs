@@ -8,6 +8,7 @@ using UnityEngine.TextCore.Text;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
+using System;
 
 public class HUDMenu : Menu
 {
@@ -29,5 +30,15 @@ public class HUDMenu : Menu
             Time.timeScale = 0.0f;
             MenuManager.Instance.ShowMenu(pauseMenuClassifier);
         }
+    }
+
+    internal void ShowHUD()
+    {
+        MenuManager.Instance.ShowMenu(menuClassifier);
+    }
+
+    internal void HideHUD()
+    {
+        MenuManager.Instance.HideMenu(menuClassifier);
     }
 }
