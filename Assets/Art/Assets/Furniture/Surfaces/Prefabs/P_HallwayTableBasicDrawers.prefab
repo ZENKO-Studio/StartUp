@@ -276,6 +276,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cdbc2898-9cde-4d57-a78a-0624c9bb7ea1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   priority: 0
 --- !u!1 &6177329050428307162
 GameObject:
@@ -412,6 +421,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ac0668d1-136d-49d8-a002-30f45b3ca425
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   priority: 0
 --- !u!1 &6859912245413152585
 GameObject:
@@ -439,7 +457,7 @@ Transform:
   m_GameObject: {fileID: 6859912245413152585}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.089559026, y: 0.6135241, z: 0.36719602}
+  m_LocalPosition: {x: 0.09, y: 0.6135241, z: 0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -461,8 +479,8 @@ MonoBehaviour:
   gate: {fileID: 4854808504747241049}
   usePosition: 1
   useGlobalPosition: 0
-  openPosition: {x: 0, y: 0, z: -0.288}
-  closePosition: {x: 0, y: 0, z: 0}
+  openPosition: {x: 0.09, y: 0.6135241, z: 0.09}
+  closePosition: {x: 0.08955903, y: 0.6135241, z: 0.367196}
   useRotation: 0
   useGlobalRotation: 0
   rotationAxis: {x: 0, y: 1, z: 0}
@@ -498,7 +516,7 @@ Transform:
   m_GameObject: {fileID: 7602065098875509036}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.62171507, y: 0.6135241, z: 0.36719602}
+  m_LocalPosition: {x: 0.622, y: 0.6135241, z: 0.377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -520,8 +538,8 @@ MonoBehaviour:
   gate: {fileID: 3634233132204274628}
   usePosition: 1
   useGlobalPosition: 0
-  openPosition: {x: 0, y: 0, z: -0.288}
-  closePosition: {x: 0, y: 0, z: 0}
+  openPosition: {x: 0.622, y: 0.6135241, z: 0.054}
+  closePosition: {x: 0.6217151, y: 0.6135241, z: 0.367196}
   useRotation: 0
   useGlobalRotation: 0
   rotationAxis: {x: 0, y: 1, z: 0}

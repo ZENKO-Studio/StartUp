@@ -30,7 +30,7 @@ public class Capture : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
 
-    [SerializeField] Inventory inventory;
+    [SerializeField] InventoryHandler inventory;
 
     private bool viewingPhoto;
     private bool isPlayerActive = true;
@@ -90,7 +90,7 @@ public class Capture : MonoBehaviour
                 {
                     if (obj != null && mainCamera != null && CameraUtilities.IsObjectInViewAndWithinArea(mainCamera, obj))
                     {
-                        isKeyItem = obj.GetComponent<KeyItem>() != null;
+                        //isKeyItem = obj.GetComponent<KeyItem>() != null;
                         //obj.TryGetComponent<SeqBase>(out seqToTrigger);
                         break;
                     }
@@ -201,12 +201,12 @@ public class Capture : MonoBehaviour
 
     void SaveKeyItemAsGameObject(Sprite photoSprite)
     {
-        newPhoto = Instantiate(photoPrefab, keyItemContainer); // Instantiate new key item photo in the key item container
-        newPhoto.GetComponentInChildren<Image>().sprite = photoSprite;
-        KeyItem k = newPhoto.GetComponent<KeyItem>();
-        k.itemName = "KeyPhoto";
-        k.itemPreview = k.gameObject;
-        inventory.AddItem(k);
+    //    newPhoto = Instantiate(photoPrefab, keyItemContainer); // Instantiate new key item photo in the key item container
+    //    newPhoto.GetComponentInChildren<Image>().sprite = photoSprite;
+    //    KeyItem k = newPhoto.GetComponent<KeyItem>();
+    //    k.itemName = "KeyPhoto";
+    //    k.itemPreview = k.gameObject;
+    //    inventory.AddItem(k);
     }
 
     void RemovePhoto()

@@ -66,7 +66,8 @@ public class Teleporter : MonoBehaviour
             }
         }
         Debug.Log(dstLocations[r].position);
-        playerTrans.GetComponent<ThirdPersonController>().Teleport(dstLocations[r]);
+        playerTrans.GetComponent<NellController>().Teleport(dstLocations[r]);
+        //playerTrans.GetComponent<ThirdPersonController>().Teleport(dstLocations[r]);
         
     }
 }

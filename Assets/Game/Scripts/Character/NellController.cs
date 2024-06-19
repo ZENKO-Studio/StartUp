@@ -1,13 +1,11 @@
 /** @SAMI 06-06-24
- *  This script handles movement and other stuff related to Nell
+ *  This script handles movement and other stuff related to Nell (Player Controller particularly)
  **/
 using Cinemachine;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
-using UnityEngine.Windows;
 using static EventBus;
 
 [RequireComponent(typeof(PlayerInput))]
@@ -23,7 +21,6 @@ public class NellController : CharacterBase
     [Header("Character Controls")]
     
     public bool bEnableMovement = true;
-    
     [SerializeField] float rotSpeed = 300f;
 
     //Can be used if jumping required
@@ -32,6 +29,7 @@ public class NellController : CharacterBase
     float ogStepOffset;
     float ySpeed = 0f;
 
+    [Tooltip("Height of Character Collider when crouched (can be tweaked with animation if needed)")]
     [SerializeField] float crouchHeight = 1.28f;
     private float crouchCenter;
     private float defaultHeight;
@@ -105,6 +103,9 @@ public class NellController : CharacterBase
 
     #region Other Vars
 
+    //Temp #TODO Replace later with the Interactable Script
+    private InventoryItem _itemInRange = null;
+
     private bool isInventoryOpen = false;
     private bool isFlashOn = false;
     private bool isCamMode = false;
@@ -128,6 +129,7 @@ public class NellController : CharacterBase
     {
         base.Start();
         ogStepOffset = characterController.stepOffset;
+
     }
 
     public override void TakeDamage(float damage)
@@ -163,10 +165,11 @@ public class NellController : CharacterBase
 
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
-        if (sprint)
+        if (sprint && Stamina > 0)
         {
             inputMag *= 2;
             soundRange = runSound;
+            DepleteStamina();
         }
         else
         {
@@ -179,20 +182,24 @@ public class NellController : CharacterBase
 
         if (movDir != Vector3.zero)
         {
-            // animator.SetBool("IsMoving", true);
+             animator.SetBool("IsMoving", true);
 
             Quaternion toRotation = Quaternion.LookRotation(movDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
         }
         else
         {
-            // animator.SetBool("IsMoving", false);
+             animator.SetBool("IsMoving", false);
+             if(GetStamina() < 100)
+                GenerateStamina();
         }
 
     }
 
     private void PlayerJump()
     {
+        if(crouch) return;
+
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
         if (characterController.isGrounded)
@@ -279,7 +286,7 @@ public class NellController : CharacterBase
         {
             if (FootstepAudioClips.Length > 0)
             {
-                var index = Random.Range(0, FootstepAudioClips.Length);
+                var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
                 AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, crouch ? FootstepAudioVolume / 2 : FootstepAudioVolume);
             }
             
@@ -304,6 +311,12 @@ public class NellController : CharacterBase
         characterController.enabled = false;
         transform.SetPositionAndRotation(t.position, t.rotation);
         characterController.enabled = true;
+    }
+
+    //Set things that are in range and interactable
+    internal void SetInteractable(InventoryItem inventoryItem)
+    {
+        _itemInRange = inventoryItem;
     }
 
     #region Read Inputs
@@ -339,6 +352,8 @@ public class NellController : CharacterBase
     public void OnInteract(InputValue value)
     {
         Debug.Log($"{name} is Interacting");
+        if (_itemInRange)
+            _itemInRange.Interact(this);
     }
 
     public void OnCamZoom(InputValue value)

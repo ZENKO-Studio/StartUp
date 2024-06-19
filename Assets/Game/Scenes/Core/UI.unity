@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7087552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,6 +1399,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235724334}
   m_CullTransparentMesh: 1
+--- !u!1 &282880460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 282880461}
+  - component: {fileID: 282880462}
+  m_Layer: 0
+  m_Name: UIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &282880461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282880460}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.564177, y: -6.5079775, z: 0.4147439}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &282880462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282880460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7861f2917f0f6f429d6567704c944ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1023792475}
+  staminaBar: {fileID: 329220401}
+  hudMenu: {fileID: 473275756}
 --- !u!1 &329220399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,7 +1457,7 @@ GameObject:
   - component: {fileID: 329220400}
   - component: {fileID: 329220401}
   m_Layer: 5
-  m_Name: SaltCharges
+  m_Name: Stamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2181,7 +2228,6 @@ GameObject:
   m_Component:
   - component: {fileID: 473275755}
   - component: {fileID: 473275756}
-  - component: {fileID: 473275757}
   m_Layer: 5
   m_Name: HUD Root
   m_TagString: Untagged
@@ -2233,19 +2279,6 @@ MonoBehaviour:
       m_Calls: []
   pauseMenuClassifier: {fileID: 11400000, guid: 1fdd91697b8a2455b8a0b9144df1b38b,
     type: 2}
---- !u!114 &473275757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473275754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7861f2917f0f6f429d6567704c944ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1023792475}
 --- !u!1 &545027151
 GameObject:
   m_ObjectHideFlags: 0
@@ -6477,6 +6510,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 282880461}
   - {fileID: 731219623}
   - {fileID: 649257373}
   - {fileID: 671636910}
